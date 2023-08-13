@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// get all posts and render to homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -13,10 +14,8 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
     res.render('homepage', { 
       posts, 
       logged_in: req.session.logged_in 
@@ -26,6 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// get single post and render
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -48,10 +48,9 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// get profile if logged in
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Post}],
@@ -68,8 +67,8 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+// get login page or redirect to profile if already logged in
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
