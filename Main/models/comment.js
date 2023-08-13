@@ -13,6 +13,7 @@ Comment.init(
     },
     content: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
@@ -33,6 +34,13 @@ Comment.init(
         key: 'id',
       },
     },
+    parent_comment_id: {
+      type: DataTypes.INTEGER,
+      references: {
+          model: "comment",
+          key: "id"
+      }
+    }
   },
   {
     sequelize,
