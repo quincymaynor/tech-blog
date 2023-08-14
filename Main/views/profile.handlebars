@@ -23,7 +23,7 @@
     </form>
   </div>
 
-  {{#if post.length}}
+  {{#if posts.length}}
   <div class="col-md-6 project-list">
     <h3>Current Posts:</h3>
     
@@ -32,18 +32,16 @@
         <div class="card-body">
           <h2 class="card-title"><a href="/posts/{{post.id}}">{{post.title}}</a></h2>
 
-          <p>{{post.body}}</p>
+          <p>{{post.content}}</p>
 
           {{{build_comment_tree post.comments ../logged_in_user}}}
         </div>
 
-        {{#ifEq post.user_id ../logged_in_user}}
+        <div>
           <button class="btn btn-sm btn-primary edit-post" id="{{post.id}}">EDIT</button>
-        {{/ifEq}}
-        
-        {{#ifEq post.user_id ../logged_in_user}}
+
           <button class="btn btn-sm btn-danger delete-post" id="{{post.id}}">DELETE</button>
-        {{/ifEq}}
+        </div>
       </div>
     {{/each}}
 
