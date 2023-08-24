@@ -1,0 +1,220 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="../images/TCC Logo.png">
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a href="/" class="navbar-item">
+                Home
+            </a>
+            <a href="/api/profile" class="navbar-item">
+                Profile
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    {{#if logged_in}}
+                    <button class="button is-danger" id="logout">Log Out</button>
+                    {{else}}
+                    <a href="/login" class="button is-danger">Log in</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="block has-text-centered">
+    <h3 class="title is-3">Welcome to Character Creator!</h3>
+</div>
+
+<!-- START FORM -->
+<form class="form new-character-form">
+
+    <div class="columns is-centered">
+
+        <!-- STATS -->
+        <div class="column is-one-quarter">
+            <div class="box">
+
+                <div class="field has-addons">
+                    <label class="label">STR</label>
+                    <div class="control">
+                        <input id="strField" class="input" type="text" placeholder="ROLL ME">
+                    </div>
+                    <div class="control">
+                        <a id="strBtn" class="button is-danger is-info">
+                            <i class="fa-solid fa-dice"></i>
+                        </a>
+                    </div>
+                </div>
+                
+
+                <div class="field has-addons">
+                    <label class="label">DEX</label>
+                    <div class="control">
+                        <input id="dexField" class="input" type="text" placeholder="ROLL ME">
+                    </div>
+                    <div class="control">
+                        <a id="dexBtn" class="button is-danger is-info">
+                            <i class="fa-solid fa-dice"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="field has-addons">
+                    <label class="label">CON</label>
+                    <div class="control">
+                        <input id="conField" class="input" type="text" placeholder="ROLL ME">
+                    </div>
+                    <div class="control">
+                        <a id="conBtn" class="button is-danger is-info">
+                            <i class="fa-solid fa-dice"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="field has-addons">
+                    <label class="label">INT</label>
+                    <div class="control">
+                        <input id="intField" class="input" type="text" placeholder="ROLL ME">
+                    </div>
+                    <div class="control">
+                        <a id="intBtn" class="button is-danger is-info">
+                            <i class="fa-solid fa-dice"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="field has-addons">
+                    <label class="label">WIS</label>
+                    <div class="control">
+                        <input id="wisField" class="input" type="text" placeholder="ROLL ME">
+                    </div>
+                    <div class="control">
+                        <a id="wisBtn" class="button is-danger is-info">
+                            <i class="fa-solid fa-dice"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="field has-addons">
+                    <label class="label">CHA</label>
+                    <div class="control">
+                        <input id="chaField" class="input" type="text" placeholder="ROLL ME">
+                    </div>
+                    <div class="control">
+                        <a id="chaBtn" class="button is-danger is-info">
+                            <i class="fa-solid fa-dice"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BASIC -->
+        <div class="column is-half">
+            <div class="box">
+
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" id="character-name" type="text" placeholder="Enter character name">
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="field column is-horizontal">
+                        <label class="label">Gender</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Non-Binary</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field column is-horizontal">
+                        <label class="label">Race</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="race">
+                                    <option>Dragonborn</option>
+                                    <option>Dwarf</option>
+                                    <option>Elf</option>
+                                    <option>Gnome</option>
+                                    <option>Half-Elf</option>
+                                    <option>Halfling</option>
+                                    <option>Half-Orc</option>
+                                    <option>Human</option>
+                                    <option>Tiefling</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field column is-horizontal">
+                        <label class="label">Class</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="classs">
+                                    <option>Barbarian</option>
+                                    <option>Bard</option>
+                                    <option>Cleric</option>
+                                    <option>Druid</option>
+                                    <option>Fighter</option>
+                                    <option>Monk</option>
+                                    <option>Paladin</option>
+                                    <option>Ranger</option>
+                                    <option>Rogue</option>
+                                    <option>Sorcerer</option>
+                                    <option>Warlock</option>
+                                    <option>Wizard</option>
+                                    <option>Artificer</option>
+                                    <option>Blood Hunter</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        <textarea class="textarea" id="description" placeholder="Enter character description"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--end columns -->
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="columns is-centered">
+        <div class="column is-half">
+            <div class="block has-text-centered">
+
+                <input class="button is-success" type="submit">
+
+            </div>
+        </div>
+    </div>
+
+</form>
+<!-- END FORM -->
+
+<script src="/js/character.js"></script>
+<script src="/js/stats.js"></script>
+<script src="/js/tooltip.js"></script>
+<script src="/js/login.js"></script>
+<script src="/js/logout.js"></script>
